@@ -1,0 +1,186 @@
+[gd_scene load_steps=3 format=3 uid="uid://bofqavxfukbhw"]
+ 
+[ext_resource type="Script" path="res://scripts/ui/craft_slot.gd" id="1_xslot"]
+[ext_resource type="Script" path="res://scripts/ui/crafting_controller.gd" id="2_ctrl"]
+[ext_resource type="Script" path="res://scripts/ui/inventory_item_icon.gd" id="3_item_icon"]
+
+[ext_resource type="PackedScene" uid="uid://ebl87ugh7hcn" path="res://scenes/player/player.tscn" id="1_wb6i1"]
+
+[node name="MainScene" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("1_wb6i1")]
+visible = false
+
+[node name="WorldObjects" type="Node2D" parent="."]
+
+[node name="CraftingUI" type="CanvasLayer" parent="."]
+layer = 10
+
+[node name="LeftPanel" type="PanelContainer" parent="CraftingUI"]
+offset_right = 142.0
+offset_bottom = 126.0
+offset_right = 142.0
+offset_bottom = 126.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CraftingUI/LeftPanel"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="Title" type="Label" parent="CraftingUI/LeftPanel/VBoxContainer"]
+layout_mode = 2
+text = "Крафт"
+
+[node name="Slots" type="HBoxContainer" parent="CraftingUI/LeftPanel/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="Slot1" type="Panel" parent="CraftingUI/LeftPanel/VBoxContainer/Slots"]
+layout_mode = 2
+custom_minimum_size = Vector2(64, 64)
+script = ExtResource("1_xslot")
+
+[node name="Icon" type="TextureRect" parent="CraftingUI/LeftPanel/VBoxContainer/Slots/Slot1"]
+layout_mode = 2
+expand_mode = 1
+stretch_mode = 5
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="CraftingUI/LeftPanel/VBoxContainer/Slots/Slot1"]
+layout_mode = 2
+text = "1"
+
+[node name="Slot2" type="Panel" parent="CraftingUI/LeftPanel/VBoxContainer/Slots"]
+layout_mode = 2
+custom_minimum_size = Vector2(64, 64)
+script = ExtResource("1_xslot")
+
+[node name="Icon" type="TextureRect" parent="CraftingUI/LeftPanel/VBoxContainer/Slots/Slot2"]
+layout_mode = 2
+expand_mode = 1
+stretch_mode = 5
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="CraftingUI/LeftPanel/VBoxContainer/Slots/Slot2"]
+layout_mode = 2
+text = "2"
+
+[node name="Slot3" type="Panel" parent="CraftingUI/LeftPanel/VBoxContainer/Slots"]
+layout_mode = 2
+custom_minimum_size = Vector2(64, 64)
+script = ExtResource("1_xslot")
+
+[node name="Icon" type="TextureRect" parent="CraftingUI/LeftPanel/VBoxContainer/Slots/Slot3"]
+layout_mode = 2
+expand_mode = 1
+stretch_mode = 5
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="CraftingUI/LeftPanel/VBoxContainer/Slots/Slot3"]
+layout_mode = 2
+text = "3"
+
+[node name="CraftButton" type="Button" parent="CraftingUI/LeftPanel/VBoxContainer"]
+layout_mode = 2
+text = "Скрафтить"
+
+[node name="ResultLabel" type="Label" parent="CraftingUI/LeftPanel/VBoxContainer"]
+layout_mode = 2
+text = "Результат: —"
+
+[node name="Controller" type="Node" parent="CraftingUI/LeftPanel/VBoxContainer"]
+script = ExtResource("2_ctrl")
+slot_paths = [NodePath("../Slots/Slot1"), NodePath("../Slots/Slot2"), NodePath("../Slots/Slot3")]
+result_label_path = NodePath("../ResultLabel")
+
+[node name="InventoryPanel" type="PanelContainer" parent="CraftingUI"]
+
+[node name="ItemSlots" type="GridContainer" parent="CraftingUI/InventoryPanel"]
+layout_mode = 2
+columns = 8
+
+[node name="ItemSlot01" type="Panel" parent="CraftingUI/InventoryPanel/ItemSlots"]
+layout_mode = 2
+custom_minimum_size = Vector2(48, 48)
+
+[node name="Icon" type="TextureRect" parent="CraftingUI/InventoryPanel/ItemSlots/ItemSlot01"]
+layout_mode = 2
+expand_mode = 1
+stretch_mode = 5
+script = ExtResource("3_item_icon")
+
+[node name="ItemSlot02" type="Panel" parent="CraftingUI/InventoryPanel/ItemSlots"]
+layout_mode = 2
+custom_minimum_size = Vector2(48, 48)
+
+[node name="Icon" type="TextureRect" parent="CraftingUI/InventoryPanel/ItemSlots/ItemSlot02"]
+layout_mode = 2
+expand_mode = 1
+stretch_mode = 5
+script = ExtResource("3_item_icon")
+
+[node name="ItemSlot03" type="Panel" parent="CraftingUI/InventoryPanel/ItemSlots"]
+layout_mode = 2
+custom_minimum_size = Vector2(48, 48)
+
+[node name="Icon" type="TextureRect" parent="CraftingUI/InventoryPanel/ItemSlots/ItemSlot03"]
+layout_mode = 2
+expand_mode = 1
+stretch_mode = 5
+script = ExtResource("3_item_icon")
+
+[node name="ItemSlot04" type="Panel" parent="CraftingUI/InventoryPanel/ItemSlots"]
+layout_mode = 2
+custom_minimum_size = Vector2(48, 48)
+
+[node name="Icon" type="TextureRect" parent="CraftingUI/InventoryPanel/ItemSlots/ItemSlot04"]
+layout_mode = 2
+expand_mode = 1
+stretch_mode = 5
+script = ExtResource("3_item_icon")
+
+[node name="ItemSlot05" type="Panel" parent="CraftingUI/InventoryPanel/ItemSlots"]
+layout_mode = 2
+custom_minimum_size = Vector2(48, 48)
+
+[node name="Icon" type="TextureRect" parent="CraftingUI/InventoryPanel/ItemSlots/ItemSlot05"]
+layout_mode = 2
+expand_mode = 1
+stretch_mode = 5
+script = ExtResource("3_item_icon")
+
+[node name="ItemSlot06" type="Panel" parent="CraftingUI/InventoryPanel/ItemSlots"]
+layout_mode = 2
+custom_minimum_size = Vector2(48, 48)
+
+[node name="Icon" type="TextureRect" parent="CraftingUI/InventoryPanel/ItemSlots/ItemSlot06"]
+layout_mode = 2
+expand_mode = 1
+stretch_mode = 5
+script = ExtResource("3_item_icon")
+
+[node name="ItemSlot07" type="Panel" parent="CraftingUI/InventoryPanel/ItemSlots"]
+layout_mode = 2
+custom_minimum_size = Vector2(48, 48)
+
+[node name="Icon" type="TextureRect" parent="CraftingUI/InventoryPanel/ItemSlots/ItemSlot07"]
+layout_mode = 2
+expand_mode = 1
+stretch_mode = 5
+script = ExtResource("3_item_icon")
+
+[node name="ItemSlot08" type="Panel" parent="CraftingUI/InventoryPanel/ItemSlots"]
+layout_mode = 2
+custom_minimum_size = Vector2(48, 48)
+
+[node name="Icon" type="TextureRect" parent="CraftingUI/InventoryPanel/ItemSlots/ItemSlot08"]
+layout_mode = 2
+expand_mode = 1
+stretch_mode = 5
+script = ExtResource("3_item_icon")
+
+[node name="AnimationPanel" type="PanelContainer" parent="CraftingUI"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CraftingUI/AnimationPanel"]

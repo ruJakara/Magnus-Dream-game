@@ -1,0 +1,146 @@
+[gd_scene load_steps=3 format=3 uid="uid://ebl87ugh7hcn"]
+
+[ext_resource type="Script" uid="uid://0w30rtpe861e" path="res://scripts/player/player.gd" id="1_4s8m5"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4gk1f"]
+radius = 8.0
+height = 32.0
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_4s8m5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_4gk1f")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="HUD" type="CanvasLayer" parent="."]
+scale = Vector2(0.385, 0.385)
+transform = Transform2D(0.385, 0, 0, 0.385, 0, 0)
+
+[node name="Margin" type="MarginContainer" parent="HUD"]
+offset_right = 400.0
+offset_bottom = 100.0
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="VBox" type="VBoxContainer" parent="HUD/Margin"]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="Health" type="HBoxContainer" parent="HUD/Margin/VBox"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HUD/Margin/VBox/Health"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "HP"
+
+[node name="Bar" type="ProgressBar" parent="HUD/Margin/VBox/Health"]
+layout_mode = 2
+size_flags_horizontal = 3
+value = 100.0
+
+[node name="Hunger" type="HBoxContainer" parent="HUD/Margin/VBox"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HUD/Margin/VBox/Hunger"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Hunger"
+
+[node name="Bar" type="ProgressBar" parent="HUD/Margin/VBox/Hunger"]
+layout_mode = 2
+size_flags_horizontal = 3
+value = 100.0
+
+[node name="Stamina" type="HBoxContainer" parent="HUD/Margin/VBox"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HUD/Margin/VBox/Stamina"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Stamina"
+
+[node name="Bar" type="ProgressBar" parent="HUD/Margin/VBox/Stamina"]
+layout_mode = 2
+size_flags_horizontal = 3
+value = 100.0
+
+[node name="Mana" type="HBoxContainer" parent="HUD/Margin/VBox"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HUD/Margin/VBox/Mana"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Mana"
+
+[node name="Bar" type="ProgressBar" parent="HUD/Margin/VBox/Mana"]
+layout_mode = 2
+size_flags_horizontal = 3
+value = 100.0
+
+[node name="BottomBar" type="Control" parent="HUD"]
+layout_mode = 3
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -96.0
+
+[node name="HBox" type="HBoxContainer" parent="HUD/BottomBar"]
+layout_mode = 0
+theme_override_constants/separation = 8
+alignment = 1
+
+[node name="LeftWeapon" type="Panel" parent="HUD/BottomBar/HBox"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+
+[node name="Ability1" type="Panel" parent="HUD/BottomBar/HBox"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+
+[node name="Ability2" type="Panel" parent="HUD/BottomBar/HBox"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+
+[node name="Ability3" type="Panel" parent="HUD/BottomBar/HBox"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+
+[node name="Ability4" type="Panel" parent="HUD/BottomBar/HBox"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+
+[node name="Ability5" type="Panel" parent="HUD/BottomBar/HBox"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+
+[node name="Ability6" type="Panel" parent="HUD/BottomBar/HBox"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+
+[node name="Ability7" type="Panel" parent="HUD/BottomBar/HBox"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+
+[node name="Ability8" type="Panel" parent="HUD/BottomBar/HBox"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+
+[node name="Quick1" type="Panel" parent="HUD/BottomBar/HBox"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+
+[node name="Quick2" type="Panel" parent="HUD/BottomBar/HBox"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+
+[node name="RightWeapon" type="Panel" parent="HUD/BottomBar/HBox"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
