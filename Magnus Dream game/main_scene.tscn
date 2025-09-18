@@ -1,0 +1,46 @@
+[gd_scene load_steps=2 format=3 uid="uid://bfxy13oqqn2ls"]
+
+[ext_resource type="PackedScene" uid="uid://c1jb8k0i6hekp" path="res://player.tscn" id="1_wb6i1"]
+
+[node name="MainScene" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("1_wb6i1")]
+visible = false
+
+[node name="WorldObjects" type="Node2D" parent="."]
+
+[node name="CraftingUI" type="CanvasLayer" parent="."]
+
+[node name="LeftPanel" type="PanelContainer" parent="CraftingUI"]
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CraftingUI/LeftPanel"]
+layout_mode = 2
+
+[node name="Slots" type="HBoxContainer" parent="CraftingUI/LeftPanel/VBoxContainer"]
+layout_mode = 2
+
+[node name="Slot1" type="Panel" parent="CraftingUI/LeftPanel/VBoxContainer/Slots"]
+layout_mode = 2
+
+[node name="Slot2" type="Panel" parent="CraftingUI/LeftPanel/VBoxContainer/Slots"]
+layout_mode = 2
+
+[node name="Slot3" type="Panel" parent="CraftingUI/LeftPanel/VBoxContainer/Slots"]
+layout_mode = 2
+
+[node name="CraftButton" type="Button" parent="CraftingUI/LeftPanel/VBoxContainer"]
+layout_mode = 2
+text = "Craft"
+
+[node name="ResultLabel" type="Label" parent="CraftingUI/LeftPanel/VBoxContainer"]
+layout_mode = 2
+text = "Result:"
+
+[node name="InventoryPanel" type="PanelContainer" parent="CraftingUI"]
+
+[node name="ItemSlots" type="GridContainer" parent="CraftingUI/InventoryPanel"]
+layout_mode = 2
+
+[node name="AnimationPanel" type="PanelContainer" parent="CraftingUI"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CraftingUI/AnimationPanel"]
