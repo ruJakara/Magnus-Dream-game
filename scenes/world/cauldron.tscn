@@ -1,0 +1,64 @@
+[gd_scene load_steps=4 format=3 uid="uid://cauldron_scene"]
+
+[ext_resource type="Script" path="res://scripts/world/cauldron.gd" id="1_cauldron"]
+[ext_resource type="Texture2D" path="res://assets/sprites/objects/cauldron.png" id="2_cauldron_sprite"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1"]
+size = Vector2(32, 32)
+
+[node name="Cauldron" type="StaticBody2D"]
+script = ExtResource("1_cauldron")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_1")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_cauldron_sprite")
+
+[node name="InteractionArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
+shape = SubResource("RectangleShape2D_1")
+
+[node name="InteractionLabel" type="Label" parent="."]
+text = "Нажми E для готовки"
+visible = false
+
+[node name="CookingUI" type="CanvasLayer" parent="."]
+visible = false
+layer = 15
+
+[node name="CookingPanel" type="PanelContainer" parent="CookingUI"]
+offset_right = 300.0
+offset_bottom = 200.0
+
+[node name="VBox" type="VBoxContainer" parent="CookingUI/CookingPanel"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="Title" type="Label" parent="CookingUI/CookingPanel/VBox"]
+layout_mode = 2
+text = "Котелок для готовки"
+
+[node name="Ingredients" type="HBoxContainer" parent="CookingUI/CookingPanel/VBox"]
+layout_mode = 2
+
+[node name="Ingredient1" type="Panel" parent="CookingUI/CookingPanel/VBox/Ingredients"]
+layout_mode = 2
+custom_minimum_size = Vector2(64, 64)
+
+[node name="Ingredient2" type="Panel" parent="CookingUI/CookingPanel/VBox/Ingredients"]
+layout_mode = 2
+custom_minimum_size = Vector2(64, 64)
+
+[node name="Ingredient3" type="Panel" parent="CookingUI/CookingPanel/VBox/Ingredients"]
+layout_mode = 2
+custom_minimum_size = Vector2(64, 64)
+
+[node name="CookButton" type="Button" parent="CookingUI/CookingPanel/VBox"]
+layout_mode = 2
+text = "Готовить"
+
+[node name="ResultLabel" type="Label" parent="CookingUI/CookingPanel/VBox"]
+layout_mode = 2
+text = "Результат: —"

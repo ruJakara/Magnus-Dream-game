@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://bvosf5n4jrdch"]
+
+[ext_resource type="Texture2D" uid="uid://blj14w1qwghuq" path="res://assets/sprites/objects/tent.png" id="1_nic3p"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_nic3p"]
+radius = 8.0
+
+[node name="tent" type="Area2D"]
+
+[node name="Tent" type="Sprite2D" parent="."]
+position = Vector2(1, 5)
+texture = ExtResource("1_nic3p")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_nic3p")

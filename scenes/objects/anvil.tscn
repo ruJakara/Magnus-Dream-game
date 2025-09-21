@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://dlcohsk0xwuiy"]
+
+[ext_resource type="Texture2D" uid="uid://dqm1aolb834u4" path="res://assets/sprites/objects/anvil.png" id="1_ohnra"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_unthe"]
+radius = 34.928497
+
+[node name="anvil" type="Area2D"]
+
+[node name="Anvil" type="Sprite2D" parent="."]
+scale = Vector2(0.07421875, 0.07421875)
+texture = ExtResource("1_ohnra")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_unthe")
