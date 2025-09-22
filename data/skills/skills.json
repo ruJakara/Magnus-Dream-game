@@ -1,0 +1,34 @@
+{
+  "skills": [
+    {
+      "id": "health",
+      "name": "Health",
+      "description": "Player hit points",
+      "initial": 100,
+      "max": 100
+    },
+    {
+      "id": "hunger",
+      "name": "Hunger",
+      "description": "Hunger level",
+      "initial": 100,
+      "max": 100
+    },
+    {
+      "id": "stamina",
+      "name": "Stamina",
+      "description": "Energy for actions",
+      "initial": 100,
+      "max": 100
+    },
+    {
+      "id": "mana",
+      "name": "Mana",
+      "description": "Magical energy",
+      "initial": 100,
+      "max": 100
+    }
+  ]
+}
+
+

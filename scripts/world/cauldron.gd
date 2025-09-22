@@ -24,3 +24,4 @@ func _on_body_exited(body: Node2D) -> void:
 
 func toggle_cooking_ui() -> void:
 	$CookingUI.visible = !$CookingUI.visible
+

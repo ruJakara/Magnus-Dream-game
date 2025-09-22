@@ -30,3 +30,4 @@ func _on_body_exited(body: Node2D) -> void:
 func toggle_crafting_ui() -> void:
 	if crafting_ui:
 		crafting_ui.visible = !crafting_ui.visible
+

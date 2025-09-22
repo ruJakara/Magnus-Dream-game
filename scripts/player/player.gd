@@ -2,15 +2,7 @@ extends CharacterBody2D
 
 @export var move_speed: float = 200.0
 
-@export var max_health: float = 100.0
-@export var max_hunger: float = 100.0
-@export var max_stamina: float = 100.0
-@export var max_mana: float = 100.0
-
-var health: float
-var hunger: float
-var stamina: float
-var mana: float
+var skill_manager: SkillManager
 
 @onready var hp_bar: ProgressBar = $HUD/Margin/VBox/Health/Bar
 @onready var hunger_bar: ProgressBar = $HUD/Margin/VBox/Hunger/Bar
@@ -29,23 +21,40 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 func _ready() -> void:
-	health = max_health
-	hunger = max_hunger
-	stamina = max_stamina
-	mana = max_mana
-	_update_hud()
+    skill_manager = SkillManager.new()
+    add_child(skill_manager)
+    skill_manager.skill_changed.connect(_on_skill_changed)
+    skill_manager.load_from_json()
+    _initialize_hud_from_skills()
 
-func _update_hud() -> void:
-	if hp_bar:
-		hp_bar.max_value = max_health
-		hp_bar.value = health
-	if hunger_bar:
-		hunger_bar.max_value = max_hunger
-		hunger_bar.value = hunger
-	if stamina_bar:
-		stamina_bar.max_value = max_stamina
-		stamina_bar.value = stamina
-	if mana_bar:
-		mana_bar.max_value = max_mana
-		mana_bar.value = mana
+func _initialize_hud_from_skills() -> void:
+    _sync_bar("health", hp_bar)
+    _sync_bar("hunger", hunger_bar)
+    _sync_bar("stamina", stamina_bar)
+    _sync_bar("mana", mana_bar)
+
+func _sync_bar(id: StringName, bar: ProgressBar) -> void:
+    if bar == null or skill_manager == null or not skill_manager.has_skill(id):
+        return
+    bar.max_value = skill_manager.get_max(id)
+    bar.value = skill_manager.get_value(id)
+
+func _on_skill_changed(id: StringName, value: float, max_value: float) -> void:
+    match String(id):
+        "health":
+            if hp_bar:
+                hp_bar.max_value = max_value
+                hp_bar.value = value
+        "hunger":
+            if hunger_bar:
+                hunger_bar.max_value = max_value
+                hunger_bar.value = value
+        "stamina":
+            if stamina_bar:
+                stamina_bar.max_value = max_value
+                stamina_bar.value = value
+        "mana":
+            if mana_bar:
+                mana_bar.max_value = max_value
+                mana_bar.value = value
 
