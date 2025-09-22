@@ -2,16 +2,19 @@ extends TextureRect
 
 @export var item_id: String = ""
 
-func _gui_input(event: InputEvent) -> void:
-	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
-		if texture:
-			set_drag_preview(_make_drag_preview())
-			var data := {
-				"type": "item",
-				"item_id": item_id,
-				"texture": texture
-			}
-			do_drag(data, self)
+func _gui_input(_event: InputEvent) -> void:
+	pass # drag handled by _get_drag_data
+
+func _get_drag_data(_position: Vector2):
+	if texture:
+		var data := {
+			"type": "item",
+			"item_id": item_id,
+			"texture": texture
+		}
+		set_drag_preview(_make_drag_preview())
+		return data
+	return null
 
 func _make_drag_preview() -> Control:
 	var preview := TextureRect.new()

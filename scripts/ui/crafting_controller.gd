@@ -18,11 +18,11 @@ func _on_slot_changed() -> void:
 	_update_result()
 
 func _update_result() -> void:
-	var key := []
+	var key: Array = []
 	for s in slots:
 		key.append(s.item_id)
-	var recipe_str := ", ".join(key)
+	var recipe_str: String = ", ".join(key)
 	if result_label:
-		result_label.text = "Результат: %s" % (recipe_str if recipe_str.strip() != ", , " else "—")
+		result_label.text = "Результат: %s" % (recipe_str if recipe_str.strip_edges() != ", , " else "—")
 
 

@@ -1,0 +1,8 @@
+{
+	"health": { "name": "Здоровье", "start": 100, "max": 100 },
+	"mana":   { "name": "Мана",     "start": 50,  "max": 100 },
+	"stamina":{ "name": "Выносливость", "start": 100, "max": 100 },
+	"hunger": { "name": "Голод", "start": 100, "max": 100 }
+}
+
+
